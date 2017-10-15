@@ -1,0 +1,23 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'single_pays_title'|trans({'%name%' : pays.name}) }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'single_pays_title'|trans({'%name%' : pays.name}) }}</h1>
+
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.flag) }}
+            {{ form_errors(form.flag) }}
+            {{ form_widget(form.flag, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+{% endblock %}

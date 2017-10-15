@@ -1,0 +1,63 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'athlete_title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'athlete_title'|trans }}</h1>
+
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-notice bg-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.lastname) }}
+            {{ form_errors(form.lastname) }}
+            {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.firstname) }}
+            {{ form_errors(form.firstname) }}
+            {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.birthday) }}
+            {{ form_errors(form.birthday) }}
+            {{ form_widget(form.birthday, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.picture) }}
+            {{ form_errors(form.picture) }}
+            {{ form_widget(form.picture, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.pays) }}
+            {{ form_errors(form.pays) }}
+            {{ form_widget(form.pays, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.discipline) }}
+            {{ form_errors(form.discipline) }}
+            {{ form_widget(form.discipline, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+    <div class="row">
+    {% for a in athletes %}
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+            <h2>{{ a.firstname }} {{ a.lastname }}</h2>
+            <img src="{{ asset('uploads/pictures/'~ a.picture) }}" class="img-fluid" alt="">
+            <div>{{ 'athlete_birtday'|trans }} <date>{{ a.birthday|date('d/m/Y') }}</date></div>
+            <div>Discipline : {{ a.discipline.name }}</div>
+            <img src="{{ asset('uploads/flags/'~ a.pays.flag) }}" alt="" class="img-responsive">
+            <a href="{{ path('single_athlete_show', {'id' : a.idAthlete}) }}">{{ 'edit'|trans }}</a>
+            <a href="{{ path('delete_athlete', {'id' : a.idAthlete}) }}">{{ 'delete'|trans }}</a>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

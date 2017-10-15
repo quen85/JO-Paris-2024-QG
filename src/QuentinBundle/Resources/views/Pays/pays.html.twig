@@ -1,0 +1,40 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'pays_title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'pays_title'|trans }}</h1>
+
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-notice bg-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.flag) }}
+            {{ form_errors(form.flag) }}
+            {{ form_widget(form.flag, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+    <div class="row">
+        {% for p in pays %}
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <h2>{{ p.name }}</h2>
+                <img src="{{ asset('uploads/flags/'~ p.flag) }}" alt="">
+                <a href="{{ path('single_pays_show', {'id' : p.idPays}) }}">{{ 'edit'|trans }}</a>
+                <a href="{{ path('delete_pays', {'id' : p.idPays}) }}">{{ 'delete'|trans }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

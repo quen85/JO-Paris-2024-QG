@@ -1,0 +1,43 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'single_athlete_title'|trans({'%firstname%' : athlete.firstname, '%lastname%' : athlete.lastname}) }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'single_athlete_title'|trans({'%firstname%' : athlete.firstname, '%lastname%' : athlete.lastname}) }}</h1>
+
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.lastname) }}
+        {{ form_errors(form.lastname) }}
+        {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.firstname) }}
+        {{ form_errors(form.firstname) }}
+        {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.birthday) }}
+        {{ form_errors(form.birthday) }}
+        {{ form_widget(form.birthday, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.picture) }}
+        {{ form_errors(form.picture) }}
+        {{ form_widget(form.picture, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.pays) }}
+        {{ form_errors(form.pays) }}
+        {{ form_widget(form.pays, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.discipline) }}
+        {{ form_errors(form.discipline) }}
+        {{ form_widget(form.discipline, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+{% endblock %}

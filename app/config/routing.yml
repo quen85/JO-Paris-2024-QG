@@ -1,0 +1,8 @@
+quentin:
+    resource: "@QuentinBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/quentin
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

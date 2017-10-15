@@ -1,0 +1,35 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'discipline_title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'discipline_title'|trans }}</h1>
+
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-notice bg-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+    <div class="row">
+        {% for d in disciplines %}
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <h2>{{ d.name }}</h2>
+                <div>{{ 'discipline_athlete_number'|trans({'%number%' : d.athlete|length}) }}</div>
+                <a href="{{ path('single_discipline_show', {'id' : d.idDiscipline}) }}">{{ 'edit'|trans }}</a>
+                <a href="{{ path('delete_discipline', {'id' : d.idDiscipline}) }}">{{ 'delete'|trans }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

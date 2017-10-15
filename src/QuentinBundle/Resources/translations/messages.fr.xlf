@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="athlete_birtday" resname="athlete_birtday">
+                <source>Born</source>
+                <target>Né le</target>
+            </trans-unit>
+            <trans-unit id="edit" resname="edit">
+                <source>Edit</source>
+                <target>Modifier</target>
+            </trans-unit>
+            <trans-unit id="delete" resname="delete">
+                <source>Delete</source>
+                <target>Supprimer</target>
+            </trans-unit>
+            <trans-unit id="save" resname="save">
+                <source>Save</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="athlete_lastname" resname="athlete_lastname">
+                <source>Lastname</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="athlete_firstname" resname="athlete_firstname">
+                <source>Firstname</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="athlete_date_birthday" resname="athlete_date_birthday">
+                <source>Birthday</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+            <trans-unit id="athlete_picture" resname="athlete_picture">
+                <source>Picture</source>
+                <target>Photo</target>
+            </trans-unit>
+            <trans-unit id="athlete_country" resname="athlete_country">
+                <source>Country</source>
+                <target>Pays</target>
+            </trans-unit>
+            <trans-unit id="pays_name" resname="pays_name">
+                <source>Name</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="pays_flag" resname="pays_flag">
+                <source>Flag</source>
+                <target>Drapeau</target>
+            </trans-unit>
+            <trans-unit id="discipline_name" resname="discipline_name">
+                <source>Name</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="form_notblank" resname="form_notblank">
+                <source>This field must not be empty</source>
+                <target>Ce champs ne doit pas être vide</target>
+            </trans-unit>
+            <trans-unit id="discipline_title" resname="discipline_title">
+                <source>Disciplines list</source>
+                <target>Liste des disciplines</target>
+            </trans-unit>
+            <trans-unit id="discipline_athlete_number" resname="discipline_athlete_number">
+                <source>Athletes number : %number%</source>
+                <target>Nombre d'athlètes : %number%</target>
+            </trans-unit>
+            <trans-unit id="single_discipline_title" resname="single_discipline_title">
+                <source>Edit discipline : %name%</source>
+                <target>Modifier discipline : %name%</target>
+            </trans-unit>
+            <trans-unit id="athlete_title" resname="athlete_title">
+                <source>Athletes list</source>
+                <target>Liste des athlètes</target>
+            </trans-unit>
+            <trans-unit id="single_athlete_title" resname="single_athlete_title">
+                <source>Edit athlete : %firstname% %lastname%</source>
+                <target>Modifier athlète : %firstname% %lastname%</target>
+            </trans-unit>
+            <trans-unit id="pays_title" resname="pays_title">
+                <source>Countries list</source>
+                <target>Liste des pays</target>
+            </trans-unit>
+            <trans-unit id="single_pays_title" resname="single_pays_title">
+                <source>Edit country : %name%</source>
+                <target>Modifier pays : %name%</target>
+            </trans-unit>
+            <trans-unit id="notice_pays_delete" resname="notice_pays_delete">
+                <source>Country deleted</source>
+                <target>Pays supprimé</target>
+            </trans-unit>
+            <trans-unit id="notice_pays_update" resname="notice_pays_update">
+                <source>Country updated</source>
+                <target>Pays modifié</target>
+            </trans-unit>
+            <trans-unit id="notice_pays_add" resname="notice_pays_add">
+                <source>Country added !</source>
+                <target>Pays ajouté !</target>
+            </trans-unit>
+            <trans-unit id="notice_athlete_delete" resname="notice_athlete_delete">
+                <source>Athlete deleted</source>
+                <target>Athlète supprimé</target>
+            </trans-unit>
+            <trans-unit id="notice_athlete_update" resname="notice_athlete_update">
+                <source>Athlete updated</source>
+                <target>Athlète modifié</target>
+            </trans-unit>
+            <trans-unit id="notice_athlete_add" resname="notice_athlete_add">
+                <source>Athlete added !</source>
+                <target>Athlète ajouté !</target>
+            </trans-unit>
+            <trans-unit id="notice_discipline_delete" resname="notice_discipline_delete">
+                <source>Discipline deleted</source>
+                <target>Discipline supprimé</target>
+            </trans-unit>
+            <trans-unit id="notice_discipline_update" resname="notice_discipline_update">
+                <source>Discipline updated</source>
+                <target>Discipline modifié</target>
+            </trans-unit>
+            <trans-unit id="notice_discipline_add" resname="notice_discipline_add">
+                <source>Discipline added !</source>
+                <target>Discipline ajouté !</target>
+            </trans-unit>
+            <trans-unit id="navigation_athlete" resname="navigation_athlete">
+                <source>Athletes</source>
+                <target>Athlètes</target>
+            </trans-unit>
+            <trans-unit id="navigation_discipline" resname="navigation_discipline">
+                <source>Disciplines</source>
+                <target>Disciplines</target>
+            </trans-unit>
+            <trans-unit id="navigation_pays" resname="navigation_pays">
+                <source>Countries</source>
+                <target>Pays</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
