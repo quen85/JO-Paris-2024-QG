@@ -16,6 +16,3 @@ composer install
 ```
 - Importer la base de données "bdd.sql" dans votre phpmyadmin.
 - Modifier les configurations de la base de données dans le fichier config.yml
-- 
-
-
