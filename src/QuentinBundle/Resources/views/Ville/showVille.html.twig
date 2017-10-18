@@ -1,0 +1,40 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'single_ville_title'|trans({'%name%' : ville.name}) }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'single_ville_title'|trans({'%name%' : ville.name}) }}</h1>
+
+    {{ form_start(form, {'attr': {'class': 'update', 'data-id': ville.idVille}}) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery('form').submit(function(e){
+            e.preventDefault();
+
+            jQuery.ajax({
+                url: '{{ path('ville_show') }}',
+                type: 'POST',
+                data: jQuery(this).serialize(),
+                success: function(retour){
+                    console.log(retour.msg);
+                    if(retour.type === 'success'){
+                        location.reload();
+                    }
+                },
+                error: function(retour){
+                    console.log(retour);
+                }
+            })
+        });
+    </script>
+
+{% endblock %}

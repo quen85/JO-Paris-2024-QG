@@ -130,6 +130,38 @@
                 <source>Pays</source>
                 <target>Countries</target>
             </trans-unit>
+            <trans-unit id="navigation_ville" resname="navigation_ville">
+                <source>Ville</source>
+                <target>Cities</target>
+            </trans-unit>
+            <trans-unit id="ville_title" resname="ville_title">
+                <source>Liste des villes</source>
+                <target>Cities list</target>
+            </trans-unit>
+            <trans-unit id="ville_name" resname="ville_name">
+                <source>Nom</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="notice_ville_add" resname="notice_ville_add">
+                <source>Ville ajoutée</source>
+                <target>City added</target>
+            </trans-unit>
+            <trans-unit id="notice_ville_update" resname="notice_ville_update">
+                <source>Ville modifiée</source>
+                <target>City updated</target>
+            </trans-unit>
+            <trans-unit id="notice_ville_delete" resname="notice_ville_delete">
+                <source>Ville supprimée</source>
+                <target>City deleted</target>
+            </trans-unit>
+            <trans-unit id="ville_empty" resname="ville_empty">
+                <source>Pas de villes ajoutées</source>
+                <target>No cities added</target>
+            </trans-unit>
+            <trans-unit id="ville_confirm" resname="ville_confirm">
+                <source>Êtes-vous sûr de vouloir supprimer la ville ?</source>
+                <target>Are you sure you want to delete the city ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

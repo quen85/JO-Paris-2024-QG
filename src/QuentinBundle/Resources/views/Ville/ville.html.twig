@@ -1,0 +1,139 @@
+{% extends 'QuentinBundle::base.html.twig' %}
+
+{% block title %}{{ 'ville_title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'ville_title'|trans }}</h1>
+
+
+    {{ form_start(form, {'attr': {'class': 'add'}}) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+
+    <div class="row">
+        {% if villes is empty %}
+            {{ 'ville_empty'|trans }}
+        {% else %}
+            {% for v in villes %}
+                <div class="col-xs-12 col-sm-6 col-lg-4" data-id="">
+                    <h2>{{ v.name }}</h2>
+                    <a id="update-button" data-id="{{ v.idVille }}" href="{{ path('single_ville_show', {'id' : v.idVille}) }}">{{ 'edit'|trans }}</a>
+                    <a id="delete-button" data-id="{{ v.idVille }}" href="{{ path('delete_ville', {'id' : v.idVille}) }}">{{ 'delete'|trans }}</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).on('submit', 'form.add', function(e){
+            e.preventDefault();
+
+            jQuery.ajax({
+                url: '{{ path('ville_show') }}',
+                type: 'POST',
+                data: jQuery(this).serialize(),
+                success: function(retour){
+                    console.log(retour.msg);
+                    if(retour.type === 'success'){
+                        var template = jQuery(retour.template);
+                        var found = $('.row', template);
+                        console.log(found);
+                        jQuery('.row').html(found[0].innerHTML);
+                        if($('.alert.alert-notice').length > 0){
+                            $('.alert.alert-notice').text(retour.msg);
+                        }
+                        else{
+                            $('.container.content').prepend('<div class="alert alert-notice bg-success">' + retour.msg + '</div>')
+                        }
+                    }
+                },
+                error: function(retour){
+                    console.log(retour);
+                }
+            })
+        });
+
+        jQuery(document).on('submit', 'form.update', function(e){
+            e.preventDefault();
+
+            jQuery.ajax({
+                url: 'ville/' + $(this).data('id'),
+                type: 'POST',
+                data: {"type": 'update', "id": $(this).data('id'), "name": $(this).find('input').val()},
+                success: function(retour){
+                    console.log(retour.msg);
+                    if(retour.type === 'success'){
+                        var template = jQuery(retour.template);
+                        var found = $('.row', template);
+                        console.log(found);
+                        jQuery('.row').html(found[0].innerHTML);
+                        if($('.alert.alert-notice').length > 0){
+                            $('.alert.alert-notice').text(retour.msg);
+                        }
+                        else{
+                            $('.container.content').prepend('<div class="alert alert-notice bg-success">' + retour.msg + '</div>')
+                        }
+                    }
+                },
+                error: function(retour){
+                    console.log(retour);
+                }
+            })
+        });
+
+        jQuery('.row').on('click', '#delete-button', function (e) {
+            e.preventDefault();
+            if(confirm('{{ 'ville_confirm'|trans }}')){
+                jQuery.ajax({
+                    url: 'ville/' + $(this).data('id') + '/delete',
+                    type: 'POST',
+                    success: function(retour){
+                        console.log(retour.msg);
+                        if(retour.type === 'success'){
+                            var template = jQuery(retour.template);
+                            var found = $('.row', template);
+                            jQuery('.row').html(found[0].innerHTML);
+                            if($('.alert.alert-notice').length > 0){
+                                $('.alert.alert-notice').text(retour.msg);
+                            }
+                            else{
+                                $('.container.content').prepend('<div class="alert alert-notice bg-success">' + retour.msg + '</div>')
+                            }
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr)
+                    }
+                })
+            }
+            else{
+                return false;
+            }
+        });
+
+        jQuery('.row').on('click', '#update-button', function (e) {
+            e.preventDefault();
+                jQuery.ajax({
+                    url: 'ville/' + $(this).data('id'),
+                    type: 'POST',
+                    data: {type: "form"},
+                    success: function(retour){
+                            var template = jQuery(retour.template);
+                            var found = $('form', template);
+                            jQuery('.row').append(found);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr)
+                    }
+                })
+        });
+    </script>
+
+{% endblock %}
